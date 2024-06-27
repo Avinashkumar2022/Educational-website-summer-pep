@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- css  -->
+    <link rel="stylesheet" href="app/scss/style.css">
+</head>
+
+<body>
+    <div class="outer" id="outer">
+        <div class="h1_text">
+            <h1>Want To Join Us?</h1>
+        </div>
+        <div class="outer_main">
+            <div class="input">
+                <form action="" name="myForm" onsubmit="return(validation());">
+
+                    <div class="name">
+                        <label class="mainElement" for="nameid">Name</label>
+                        <input id="nameid" name="name" type="text" placeholder="Enter your name">
+                        <span class="error" id="errorname"></span>
+                    </div>
+
+                    <div class="age">
+                        <label class="mainElement" for="ageid">Age</label>
+                        <input id="age" name="age" type="text" placeholder="Enter your age">
+                        <span class="error" id="errorage"></span>
+                    </div>
+
+                    <div class="email">
+                        <label class="mainElement" for="email">Email ID</label>
+                        <input id="email" name="Email" type="email" placeholder="name123@gmail.com">
+                        <span class="error" id="erroremail"></span>
+                    </div>
+
+                    <div class="password">
+                        <label class="mainElement" for="password">Password: </label>
+                        <input id="password" name="password" type="password" placeholder="Enter your password">
+                        <span class="error" id="errorpassword"></span>
+                    </div>
+
+                    <br>
+                    <div class="agreement">
+                        <input type="checkbox" name="agreement" id="agreement">
+                        <label for="agreement">Terms and Conditions</label><br>
+                        <span class="error" id="erroragreement"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="button">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validation() {
+            var name = document.getElementById('nameid').value;
+            var age = document.getElementById('age').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var agreement = document.getElementById('agreement').checked;
+
+            var isValid = true;
+
+            // Name validation
+            if (name == "") {
+                document.getElementById('errorname').innerText = "Please enter your name";
+                isValid = false;
+            } else {
+                document.getElementById('errorname').innerText = "";
+            }
+
+            // Age validation
+            if (age == "" || isNaN(age)) {
+                document.getElementById('errorage').innerText = "Please enter a valid age";
+                isValid = false;
+            } else {
+                document.getElementById('errorage').innerText = "";
+            }
+
+            // Email validation
+            if (email == "") {
+                document.getElementById('erroremail').innerText = "Please enter your email";
+                isValid = false;
+            } else {
+                document.getElementById('erroremail').innerText = "";
+            }
+
+            // Password validation
+            if (password == "") {
+                document.getElementById('errorpassword').innerText = "Please enter your password";
+                isValid = false;
+            } else {
+                document.getElementById('errorpassword').innerText = "";
+            }
+
+            // Agreement validation
+            if (!agreement) {
+                document.getElementById('erroragreement').innerText = "Please agree to the terms and conditions";
+                isValid = false;
+            } else {
+                document.getElementById('erroragreement').innerText = "";
+            }
+
+            return isValid;
+        }
+
+    </script>
+</body>
+
+</html>
